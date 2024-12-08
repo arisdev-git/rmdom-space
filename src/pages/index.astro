@@ -3,8 +3,8 @@ import styles from '../styles/styles.module.css';
 import RandomGif from '../components/randmgif.jsx';
 
 const gifs = [
-  'src/assets/globe.gif',
-  'src/assets/neco-arc-dance.gif',
+  '/globe.gif',
+  '/neco-arc-dance.gif',
 ];
 
 
@@ -39,7 +39,7 @@ const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 	</style>
 </head>
 <body>
-	<audio id="bg-audio" src="src/assets/audio2.mp3" autoplay loop></audio>
+	<audio id="bg-audio" src="/audio2.mp3" autoplay loop></audio>
 
 	<div class="main"></div>
 
@@ -52,8 +52,8 @@ const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 	<script>
 			
 			const audioPool = [
-            "src/assets/audio2.mp3",
-			"src/assets/audio1.mp3"
+            "/audio2.mp3",
+			"/audio1.mp3"
         ];
 
         const audio = document.getElementById('bg-audio');
