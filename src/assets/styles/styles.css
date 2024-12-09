@@ -41,3 +41,26 @@ animation: zoom 16s alternate infinite;
       transform: scale(1.5);
   }
 }
+
+h3 {
+  font-family: Hack Nerd Font;
+  color: whitesmoke;
+  position: absolute;
+  top: 95%;
+  right: 94%;
+}
+
+div {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: JetBrains Mono;
+  color: whitesmoke;
+  font-size: larger;
+  margin-top: 0;
+  ;
+}

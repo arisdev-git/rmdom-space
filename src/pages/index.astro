@@ -6,6 +6,7 @@ import RandomGif from '../components/randmgif.jsx';
 const gifs = [
   '/globe.gif',
   '/neco-arc-dance.gif',
+  '/linux-tux.gif',
 ];
 
 const texts = [
@@ -37,33 +38,6 @@ let starStyles = result.substring(0, result.length - 1);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 	<title>rmdom</title>
-
-	<style>
-
-		div {
-			position: absolute;
-			top: 50%;
-			left:50%;
-			transform: translate(-50%, -50%);
-		}
-
-		h1 {
-			font-family: JetBrains Mono;
-			color: whitesmoke;
-			font-size: large;
-			text-align: center;
-			;
-		}
-
-		h1 {
-			font-family: JetBrains Mono;
-			color: whitesmoke;
-			font-size: larger;
-			margin-top: 0;
-			;
-		}
-
-	</style>
 </head>
 <body>
 	<audio id="bg-audio" src="/audio2.mp3" autoplay loop></audio>
@@ -84,7 +58,7 @@ let starStyles = result.substring(0, result.length - 1);
 	</div>
 
 	<h1 id="random-text" class="random-text">hi</h1>
-	<a></a>
+	<h3>by rmdom</h3>
 	<script>
 
 document.addEventListener("DOMContentLoaded", () => {
