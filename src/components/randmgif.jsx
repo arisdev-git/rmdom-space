@@ -1,8 +1,14 @@
 const RandomGif = ({ gif, className }) => {
   return (
-    <div className={className}>
-      <img src={gif} alt="Random GIF" />
-    </div>
+    <img
+      src={gif}
+      alt="Random GIF"
+      className={className}
+      style={{
+        width: '140%', 
+        height: 'auto', 
+      }}
+    />
   );
 };
 
