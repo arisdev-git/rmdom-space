@@ -40,7 +40,7 @@ let starStyles = result.substring(0, result.length - 1);
 	<title>rmdom</title>
 </head>
 <body>
-	<audio id="bg-audio" src="/audio2.mp3" autoplay loop></audio>
+	<audio id="bg-audio" src="/audio3.mp3" loop></audio>
 
 	<div class="main"></div>
 	<a target="_blank" rel="noreferer" class="git" href="https://github.com/aris-py/rmdom-space">
@@ -98,26 +98,33 @@ document.addEventListener("DOMContentLoaded", () => {
       changeTextRandomly();
     });
 			
-	document.addEventListener('DOMContentLoaded', () => {
-    const audioPool = [
+    document.addEventListener('DOMContentLoaded', () => {
+    const audioPool: string[] = [
         "/audio2.mp3",
         "/audio1.mp3",
-		    "/audio3.mp3"
+        "/audio3.mp3"
     ];
 
-    const audio = document.getElementById('bg-audio');
-    if (!(audio instanceof HTMLAudioElement)) {
-        console.error('the element with id “bg-audio” is not an element: <audio>.');
+    const audio = document.getElementById('bg-audio') as HTMLAudioElement | null;
+    if (!audio) {
+        console.error('El elemento con id "bg-audio" no es un elemento <audio>.');
         return;
     }
 
-    const pickRandomTrack = () => 
-        audioPool[Math.floor(Math.random() * audioPool.length)];
+    const pickRandomTrack = (currentTrack: string): string => {
+        let nextTrack: string;
+        do {
+            nextTrack = audioPool[Math.floor(Math.random() * audioPool.length)];
+        } while (nextTrack === currentTrack);
+        return nextTrack;
+    };
 
     const playRandomTrack = () => {
-        audio.src = pickRandomTrack();
+        const newTrack = pickRandomTrack(audio.src); 
+        audio.src = newTrack;
+        audio.load(); 
         audio.play().catch(err => {
-            console.warn("error while playing audio:", err);
+            console.warn("Error al reproducir el audio:", err);
         });
     };
 
@@ -136,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.scrollTo(0, 0);
 });
+
         
 	</script>
 </body>
