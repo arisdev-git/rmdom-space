@@ -1,5 +1,5 @@
 ---
-import styles from '../styles/styles.css';
+import styles from 'src/assets/styles/styles.css';
 import RandomGif from '../components/randmgif.jsx';
 
 
@@ -36,7 +36,7 @@ let starStyles = result.substring(0, result.length - 1);
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/styles/styles.css" />
+	<link rel="stylesheet" href="src/assets/styles/styles.css" />
 	<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 	<title>rmdom</title>
 
@@ -71,7 +71,7 @@ let starStyles = result.substring(0, result.length - 1);
 	<audio id="bg-audio" src="/audio2.mp3" autoplay loop></audio>
 
 	<div class="main"></div>
-	<a class="git" href="https://github.com/aris-py/rmdom-space">
+	<a target="_blank" rel="noreferer" class="git" href="https://github.com/aris-py/rmdom-space">
 		<img 
 		  alt="github repo" 
 		  width="40" 
@@ -81,8 +81,8 @@ let starStyles = result.substring(0, result.length - 1);
 
 	  <div class="spacey-container"></div>
 
-	<div>
-		<a href="https://www.youtube.com/watch?v=NfPcqqoUqqo"><RandomGif className="neko" gif={randomGif} client:load /></a>
+	<div class="gifsrmd">
+		<a target="_blank" rel="noreferer" href="https://www.youtube.com/watch?v=NfPcqqoUqqo"><RandomGif className="neko" gif={randomGif} client:load /></a>
 	</div>
 
 	<h1 id="random-text" class="random-text">hi</h1>
