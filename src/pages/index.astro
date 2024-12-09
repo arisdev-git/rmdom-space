@@ -4,9 +4,8 @@ import RandomGif from '../components/randmgif.jsx';
 
 
 const gifs = [
-  '/gifs/globe.gif',
-  '/gifs/neco-arc-dance.gif',
-  '/gifs/linux-tux.gif',
+  '/globe.gif',
+  '/neco-arc-dance.gif',
 ];
 
 const texts = [
@@ -51,6 +50,14 @@ let starStyles = result.substring(0, result.length - 1);
 		h1 {
 			font-family: JetBrains Mono;
 			color: whitesmoke;
+			font-size: large;
+			text-align: center;
+			;
+		}
+
+		h1 {
+			font-family: JetBrains Mono;
+			color: whitesmoke;
 			font-size: larger;
 			margin-top: 0;
 			;
@@ -70,13 +77,14 @@ let starStyles = result.substring(0, result.length - 1);
 		  src="/githublogo.svg">
 	  </a>
 
+	  <div class="spacey-container"></div>
 
-	<div class="gif-wrapper">
+	<div class="gifsrmd">
 		<a target="_blank" rel="noreferer" href="https://www.youtube.com/watch?v=NfPcqqoUqqo"><RandomGif className="neko" gif={randomGif} client:load /></a>
 	</div>
 
 	<h1 id="random-text" class="random-text">hi</h1>
-	<h2 class="madeby">made by rmdom</h2>
+	<a></a>
 	<script>
 
 document.addEventListener("DOMContentLoaded", () => {
