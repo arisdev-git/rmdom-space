@@ -8,20 +8,40 @@ const gifs = [
   '/neco-arc-dance.gif',
 ];
 
+const texts = [
+  "i am a toast!!!!",
+  "theres no hidden room below the igloos",
+  "how do i write javascript",
+  "made with love by chat gpt",
+  "how to center a div?????"
+];
 
 const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+let randomNumber = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const STAR_COUNT = 800;
+let result = '';
+for (let i = 0; i < STAR_COUNT; i++) {
+    result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(0, 1)}px ${randomNumber(0, 1)}px #fff,`;
+}
+let starStyles = result.substring(0, result.length - 1);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/styles/styles.css" />
 	<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 	<title>rmdom</title>
 
 	<style>
+
 		div {
 			position: absolute;
 			top: 50%;
@@ -37,55 +57,113 @@ const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 			;
 		}
 
+		h1 {
+			font-family: JetBrains Mono;
+			color: whitesmoke;
+			font-size: larger;
+			margin-top: 0;
+			;
+		}
+
 	</style>
 </head>
 <body>
 	<audio id="bg-audio" src="/audio2.mp3" autoplay loop></audio>
 
 	<div class="main"></div>
+	<a class="git" href="https://github.com/aris-py/rmdom-space">
+		<img 
+		  alt="github repo" 
+		  width="40" 
+		  class="git" 
+		  src="/githublogo.svg">
+	  </a>
+
+	  <div class="spacey-container"></div>
 
 	<div>
-		<RandomGif className="neko" gif={randomGif} client:load />
+		<a href="https://www.youtube.com/watch?v=NfPcqqoUqqo"><RandomGif className="neko" gif={randomGif} client:load /></a>
 	</div>
 
-	<h1>im a toast!!!!</h1>
+	<h1 id="random-text" class="random-text">hi</h1>
 	<a></a>
 	<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+      const texts = [
+	  	"i am a toast!!!!",
+  		"theres no hidden room below the igloos",
+  		"how do i write javascript",
+  		"made with love by chat gpt",
+  		"how to center a div?????",
+		"tip: click on the gif in the middle of the page",
+		"im not a robot, i swear!!!!",
+		"where is the any key???",
+		"software is like sex, it's better if it's free",
+		"help! my css is leaking into my html",
+		"made with coffee and bad decisions",
+		"how do you even pronounce json????",
+		"tip: always use semicolons, or else",
+		"is it a bug or a feature?",
+		"never trust a user input!!!!",
+		"why is my console screaming at me?????",
+		"if it works, dont touch it!!!",
+		"made on a friday afternoon, probably needs refactoring",
+		"press f5 to pay respects",
+		"dont look at my spaghetti code, please"
+      ];
+
+      function changeTextRandomly() {
+        const heading = document.getElementById("random-text");
+        if (heading) {
+          const randomIndex = Math.floor(Math.random() * texts.length);
+          heading.textContent = texts[randomIndex];
+        }
+      }
+
+      setInterval(changeTextRandomly, 20000);
+
+      changeTextRandomly();
+    });
 			
-			const audioPool = [
-            "/audio2.mp3",
-			"/audio1.mp3"
-        ];
+	document.addEventListener('DOMContentLoaded', () => {
+    const audioPool = [
+        "/audio2.mp3",
+        "/audio1.mp3",
+    ];
 
-        const audio = document.getElementById('bg-audio');
+    const audio = document.getElementById('bg-audio');
+    if (!(audio instanceof HTMLAudioElement)) {
+        console.error('the element with id “bg-audio” is not an element: <audio>.');
+        return;
+    }
 
-        function pickRandomTrack() {
-            return audioPool[Math.floor(Math.random() * audioPool.length)];
-        }
+    const pickRandomTrack = () => 
+        audioPool[Math.floor(Math.random() * audioPool.length)];
 
-        function playRandomTrack() {
-            audio.src = pickRandomTrack();
-            audio.play();
-        }
-
-        window.onload = function() {
-            playRandomTrack();
-            window.scrollTo(0, 0);
-        };
-
-        audio.addEventListener('ended', playRandomTrack);
-
-        document.body.addEventListener('click', function() {
-            if (audio.paused) {
-                audio.play();
-            }
+    const playRandomTrack = () => {
+        audio.src = pickRandomTrack();
+        audio.play().catch(err => {
+            console.warn("error while playing audio:", err);
         });
+    };
 
+    audio.addEventListener('ended', playRandomTrack);
 
+    audio.volume = 0.5;
 
-        audio.volume = 0.5;
+    const startMusic = () => {
+        if (audio.paused) {
+            playRandomTrack();
+        }
+        document.body.removeEventListener('click', startMusic);
+    };
+
+    document.body.addEventListener('click', startMusic);
+
+    window.scrollTo(0, 0);
+});
         
-    
 	</script>
 </body>
 </html>
