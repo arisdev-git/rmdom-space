@@ -1,6 +1,7 @@
 ---
 import '../assets/styles/styles.css';
 import RandomGif from '../components/randmgif.jsx';
+import '../components/stars.js';
 import  SpeedInsights  from "@vercel/speed-insights/astro";
 
 const gifs = [
@@ -19,16 +20,6 @@ const texts = [
 
 const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
-let randomNumber = (min: number, max: number): number => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const STAR_COUNT = 800;
-let result = '';
-for (let i = 0; i < STAR_COUNT; i++) {
-    result += `${randomNumber(-50, 50)}vw ${randomNumber(-50, 50)}vh ${randomNumber(0, 1)}px ${randomNumber(0, 1)}px #fff,`;
-}
-let starStyles = result.substring(0, result.length - 1);
 ---
 
 <html lang="en">
@@ -37,6 +28,11 @@ let starStyles = result.substring(0, result.length - 1);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+  <meta name="robots" content="noindex">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="rmdom.space" />
+  <meta name="twitter:description" content="you should be making more productive" />
+  <meta name="twitter:image" content="public/img/banner.png" />
 	<title>rmdom</title>
 </head>
 <body>
@@ -116,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const audio = document.getElementById('bg-audio') as HTMLAudioElement | null;
     if (!audio) {
-        console.error('El elemento con id "bg-audio" no es un elemento <audio>.');
+        console.error('ERROR: the element with id "bg-audio" <audio>.');
         return;
     }
 
@@ -133,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.src = newTrack;
         audio.load(); 
         audio.play().catch(err => {
-            console.warn("Error al reproducir el audio:", err);
+            console.warn("error with the music", err);
         });
     };
 
