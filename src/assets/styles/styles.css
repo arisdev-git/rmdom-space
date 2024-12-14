@@ -1,32 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-:root {
-  --font-primary: 'JetBrains Mono', monospace;
-}
+*, *::before, *::after{
+    box-sizing: border-box;
+  }
 
-.git {
-  position: fixed; 
-  bottom: 10px; 
-  right: 10px; 
-  width: 40px; 
-  height: auto;
-  cursor: pointer;
-  object-fit: contain;
-}
+  :root {
+    --font-primary: 'JetBrains Mono', monospace;
+  }
 
-body {
+  .git {
+    position: fixed; 
+     bottom: 10px; 
+    right: 10px; 
+    width: 40px; 
+    height: auto;
+    cursor: pointer;
+    object-fit: contain;
+  }
+
+  body {
   font-family: var(--font-primary);
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100vw;
-  height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
     background: radial-gradient(circle at center, #000015, #000010, #000);
     position: relative;
     overflow: hidden;
-}
+  }
 
 .main {
   position: fixed;
@@ -48,13 +52,6 @@ animation: zoom 15s alternate infinite;
   100%{
       transform: scale(1.5);
   }
-}
-
-h3 {
-  color: whitesmoke;
-  position: absolute;
-  top: 95%;
-  right: 94%;
 }
 
 div {

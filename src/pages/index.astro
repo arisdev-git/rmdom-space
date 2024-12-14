@@ -6,16 +6,7 @@ import  SpeedInsights  from "@vercel/speed-insights/astro";
 
 const gifs = [
   '/gifs/globe.gif',
-  '/gifs/neco-arc-dance.gif',
   '/gifs/linux-tux.gif'
-];
-
-const texts = [
-  "i am a toast!!!!",
-  "theres no hidden room below the igloos",
-  "how do i write javascript",
-  "made with love by chat gpt",
-  "how to center a div?????"
 ];
 
 const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
@@ -49,6 +40,7 @@ const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 	<title>rmdom</title>
 </head>
 <body>
+  <main class="container">
 	<audio id="bg-audio" src="/music/audio3.mp3" loop></audio>
 
 	<div class="main"></div>
@@ -60,14 +52,12 @@ const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 		  src="/githublogo.svg">
 	  </a>
 
-	  <div class="spacey-container"></div>
 
 	<div class="gifsrmd">
-		<a target="_blank" rel="noreferer" href="https://www.youtube.com/watch?v=NfPcqqoUqqo"><RandomGif className="neko" gif={randomGif} client:load /></a>
+		<a target="_blank" rel="noreferer" href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><RandomGif className="neko" gif={randomGif} client:load /></a>
 	</div>
 
 	<h1 id="random-text" class="random-text">hi</h1>
-	<h3>by rmdom</h3>
 
   <script is:inline>
     function speedInsightsBeforeSend(data){
@@ -163,5 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 	</script>
+  </main>
 </body>
 </html>
