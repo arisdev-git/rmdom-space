@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
-
 *, *::before, *::after{
     box-sizing: border-box;
   }
 
   :root {
-    --font-primary: 'JetBrains Mono', monospace;
+    --font-primary: monospace;
+    font-size: x-large;
   }
 
   .git {
