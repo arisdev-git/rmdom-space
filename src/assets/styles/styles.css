@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 *, *::before, *::after{
     box-sizing: border-box;
+    font-family: Lexend;
   }
 
   :root {
     --font-primary: Lexend;
     font-size: x-large;
   }
+
 
   .git {
     position: fixed; 
@@ -64,5 +68,4 @@ h1 {
   color: whitesmoke;
   font-size: larger;
   margin-top: 0;
-  ;
 }
