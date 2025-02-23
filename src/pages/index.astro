@@ -1,144 +1,168 @@
 ---
-import '../assets/styles/styles.css';
-import RandomGif from '../components/randmgif.jsx';
-import '../components/stars.js';
-import  SpeedInsights  from "@vercel/speed-insights/astro";
+import "../assets/styles/styles.css";
+import RandomGif from "../components/randmgif.jsx";
+import "../components/stars.js";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
-const gifs = [
-  '/gifs/globe.gif',
-  '/gifs/linux-tux.gif'
-];
+const gifs = ["/gifs/globe.gif", "/gifs/linux-tux.gif"];
 
 const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
-
 ---
 
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
-  <meta name="robots" content="noindex">
-  <title>rmdom.space — the perfect place to waste time</title>
-  <meta name="title" content="rmdom.space — the perfect place to waste time" />
-  <meta name="description" content="a corner of the internet where time fades away while you watch a gif on an infinite loop." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <meta name="robots" content="noindex" />
+    <title>rmdom.space — the perfect place to waste time</title>
+    <meta
+      name="title"
+      content="rmdom.space — the perfect place to waste time"
+    />
+    <meta
+      name="description"
+      content="a corner of the internet where time fades away while you watch a gif on an infinite loop."
+    />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rmdom-space.vercel.app/" />
-  <meta property="og:title" content="rmdom.space — the perfect place to waste time" />
-  <meta property="og:description" content="a corner of the internet where time fades away while you watch a gif on an infinite loop." />
-  <meta property="og:image" content="https://rmdom-space.vercel.app/img/banner.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rmdom-space.vercel.app/" />
+    <meta
+      property="og:title"
+      content="rmdom.space — the perfect place to waste time"
+    />
+    <meta
+      property="og:description"
+      content="a corner of the internet where time fades away while you watch a gif on an infinite loop."
+    />
+    <meta
+      property="og:image"
+      content="https://rmdom-space.vercel.app/img/banner.png"
+    />
 
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rmdom-space.vercel.app/" />
+    <meta
+      property="twitter:title"
+      content="rmdom.space — the perfect place to waste time"
+    />
+    <meta
+      property="twitter:description"
+      content="a corner of the internet where time fades away while you watch a gif on an infinite loop."
+    />
+    <meta
+      property="twitter:image"
+      content="https://rmdom-space.vercel.app/img/banner.png"
+    />
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://rmdom-space.vercel.app/" />
-  <meta property="twitter:title" content="rmdom.space — the perfect place to waste time" />
-  <meta property="twitter:description" content="a corner of the internet where time fades away while you watch a gif on an infinite loop." />
-  <meta property="twitter:image" content="https://rmdom-space.vercel.app/img/banner.png" />
+    <title>rmdom</title>
+  </head>
+  <body>
+    <main>
+      <audio id="bg-audio" src="/music/audio3.mp3" loop></audio>
 
-	<title>rmdom</title>
-</head>
-<body>
-  <main>
+      <div class="main"></div>
+      <a
+        target="_blank"
+        rel="noreferer"
+        class="git"
+        href="https://github.com/arisdev-git/rmdom-space"
+      >
+        <img alt="github repo" width="40" class="git" src="/githublogo.svg" />
+      </a>
 
-	<audio id="bg-audio" src="/music/audio3.mp3" loop></audio>
+      <div class="gifsrmd">
+        <a
+          target="_blank"
+          rel="noreferer"
+          href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
+          ><RandomGif className="neko" gif={randomGif} client:load /></a
+        >
+      </div>
 
-	<div class="main"></div>
-	<a target="_blank" rel="noreferer" class="git" href="https://github.com/arisdev-git/rmdom-space">
-		<img 
-		  alt="github repo" 
-		  width="40" 
-		  class="git" 
-		  src="/githublogo.svg">
-	  </a>
+      <h1 id="random-text" class="random-text">hi</h1>
 
-
-	<div class="gifsrmd">
-		<a target="_blank" rel="noreferer" href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><RandomGif className="neko" gif={randomGif} client:load /></a>
-	</div>
-
-	<h1 id="random-text" class="random-text">hi</h1>
-
-  <script is:inline>
-    function speedInsightsBeforeSend(data){
-      console.log("Speed Insights before send", data)
-      return data;
-    }
-  </script>
-  <SpeedInsights />
-  
-	<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-      const texts = [
-	  	"i am a toast!!!!",
-  		"theres no hidden room below the igloos",
-  		"how do i write lagvascript",
-  		"made with love by chat gpt",
-  		"there is a hidden prize if you click on the gif in the middle of the screen"
-      ];
-
-      function changeTextRandomly() {
-        const heading = document.getElementById("random-text");
-        if (heading) {
-          const randomIndex = Math.floor(Math.random() * texts.length);
-          heading.textContent = texts[randomIndex];
+      <script is:inline>
+        function speedInsightsBeforeSend(data) {
+          console.log("Speed Insights before send", data);
+          return data;
         }
-      }
+      </script>
+      <SpeedInsights />
 
-      setInterval(changeTextRandomly, 20000);
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const texts = [
+            "i am a toast!!!!",
+            "theres no hidden room below the igloos",
+            "how do i write lagvascript",
+            "made with love by chat gpt",
+            "there is a hidden prize if you click on the gif in the middle of the screen",
+          ];
 
-      changeTextRandomly();
-    });
-			
-    document.addEventListener('DOMContentLoaded', () => {
-    const audioPool: string[] = [
-        "/music/audio2.mp3",
-        "/music/audio1.mp3",
-        "/music/audio3.mp3"
-    ];
+          function changeTextRandomly() {
+            const heading = document.getElementById("random-text");
+            if (heading) {
+              const randomIndex = Math.floor(Math.random() * texts.length);
+              heading.textContent = texts[randomIndex];
+            }
+          }
 
-    const audio = document.getElementById('bg-audio') as HTMLAudioElement | null;
-    if (!audio) {
-        console.error('ERROR: the element with id "bg-audio" <audio>.');
-        return;
-    }
+          setInterval(changeTextRandomly, 20000);
 
-    const pickRandomTrack = (currentTrack: string): string => {
-        let nextTrack: string;
-        do {
-            nextTrack = audioPool[Math.floor(Math.random() * audioPool.length)];
-        } while (nextTrack === currentTrack);
-        return nextTrack;
-    };
-
-    const playRandomTrack = () => {
-        const newTrack = pickRandomTrack(audio.src); 
-        audio.src = newTrack;
-        audio.load(); 
-        audio.play().catch(err => {
-            console.warn("error with the music", err);
+          changeTextRandomly();
         });
-    };
 
-    audio.addEventListener('ended', playRandomTrack);
+        document.addEventListener("DOMContentLoaded", () => {
+          const audioPool: string[] = [
+            "/music/audio2.mp3",
+            "/music/audio1.mp3",
+            "/music/audio3.mp3",
+          ];
 
-    audio.volume = 0.5;
+          const audio = document.getElementById(
+            "bg-audio"
+          ) as HTMLAudioElement | null;
+          if (!audio) {
+            console.error('ERROR: the element with id "bg-audio" <audio>.');
+            return;
+          }
 
-    const startMusic = () => {
-        if (audio.paused) {
-            playRandomTrack();
-        }
-        document.body.removeEventListener('click', startMusic);
-    };
+          const pickRandomTrack = (currentTrack: string): string => {
+            let nextTrack: string;
+            do {
+              nextTrack =
+                audioPool[Math.floor(Math.random() * audioPool.length)];
+            } while (nextTrack === currentTrack);
+            return nextTrack;
+          };
 
-    document.body.addEventListener('click', startMusic);
+          const playRandomTrack = () => {
+            const newTrack = pickRandomTrack(audio.src);
+            audio.src = newTrack;
+            audio.load();
+            audio.play().catch((err) => {
+              console.warn("error with the music", err);
+            });
+          };
 
-    window.scrollTo(0, 0);
-});
+          audio.addEventListener("ended", playRandomTrack);
 
-	</script>
-  </main>
-</body>
+          audio.volume = 0.5;
+
+          const startMusic = () => {
+            if (audio.paused) {
+              playRandomTrack();
+            }
+            document.body.removeEventListener("click", startMusic);
+          };
+
+          document.body.addEventListener("click", startMusic);
+
+          window.scrollTo(0, 0);
+        });
+      </script>
+    </main>
+  </body>
 </html>
